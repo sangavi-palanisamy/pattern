@@ -1,84 +1,126 @@
-﻿
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-
-namespace pattern
+namespace statements
 {
-
-     class pattern
+     class statements
     {
-        public void star1()
+       
+        public void first() //if-else statement
         {
-            int i, j;
             int n = Convert.ToInt32(Console.ReadLine());
-            for (i = 1; i <= n; i++)
-            {
-                for(j=1;j<=i;j++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
-            }
             
+            if(n%2==0)
+            {
+                Console.WriteLine("n is even number");
+            }
+            else
+            {
+                Console.WriteLine("n is not even number");
+
+            }
+
         }
-        public void star2()
+        public void second() //if-else if ladder
         {
-            int i, j,l;
-            int n = Convert.ToInt32(Console.ReadLine());
-           for (i = n; i >=1; i--)
-            {
-                for (j = 1; j <i; j++)
-                {
-                    Console.Write(" ");
-                }
-                for(l=n;l>=i;l--)
-                {
-                    Console.Write("*");
+            int val = Convert.ToInt32(Console.ReadLine());
 
-                }
-               
-                Console.WriteLine();
+            if (val==1)
+            {
+                Console.WriteLine("n is one");
             }
-          
-            
+            else if(val==2)
+            {
+                Console.WriteLine("n is two");
+
+            }
+            else if(val==3)
+            {
+                Console.WriteLine("n is three");
+            }
+            else
+            {
+                Console.WriteLine("more than three");
+            }
 
         }
-       public void star3()
+        public void four() //switch statement
         {
-            int i, j, l=0;
-             int n = Convert.ToInt32(Console.ReadLine());
-            for(i=1;i<=n;i++)
+            int n = 3;
+            switch (n)
             {
-                for(j=1;j<=(n-i);j++)
-                {
-                    Console.Write(" ");
-                }
-                for(l=1;l<i*2;l++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
+
+                case 1:
+                    Console.WriteLine("number is 1");
+                    break;
+                case 2:
+                    Console.WriteLine("number is 2");
+                    break;
+                case 3:
+                    Console.WriteLine("number is 3");
+                    break;
+                case 4:
+                    Console.WriteLine("number is 4");
+                    break;
+                default:
+                    Console.WriteLine("no number is matched");
+                    break;
 
             }
-            
-
-            
         }
+
+
+    }
+    class loops
+    {
         
+        public void third() //do-while loop
+        {
+
+            int i = Convert.ToInt32(Console.ReadLine());
+
+            do
+            {
+                
+                Console.WriteLine(i);
+                i++;
+            } while (i <10);
+            
+
+            
+        }
+        public void fifth()//while
+        {
+
+            int i = Convert.ToInt32(Console.ReadLine());
+
+            while (i < 20) 
+            {
+
+                Console.WriteLine(i);
+                i++;
+            } 
+
+
+
+        }
+
     }
     class Program
     {
-       
-
         static void Main(string[] args)
         {
-            pattern obj = new pattern();
-            obj.star1();
-            obj.star2();
-            obj.star3();
+            statements state = new statements();//object creation for statements class
+            state.first();
+            state.second();
+            loops obj = new loops();//object creation for loops class
+            obj.third();
+            state.four();
+            obj.fifth();
             Console.ReadKey();
-
-
         }
     }
 }
